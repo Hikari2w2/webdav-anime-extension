@@ -9,7 +9,7 @@
             android:name="tachiyomi.animeextension"
             android:value="1.0" />
         <meta-data
-            android:name="tachiyomi.extension.class"
+            android:name="tachiyomi.animeextension.class"
             android:value="eu.kanade.tachiyomi.animeextension.all.webdav.WebDAV" />
     </application>
 
