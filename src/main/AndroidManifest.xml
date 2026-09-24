@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:hasCode="true"
+        android:label="Aniyomi: WebDAV Anime"
+        android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="tachiyomi.animeextension"
+            android:value="1.0" />
+        <meta-data
+            android:name="tachiyomi.extension.class"
+            android:value="eu.kanade.tachiyomi.animeextension.all.webdav.WebDAV" />
+    </application>
+
+</manifest>
