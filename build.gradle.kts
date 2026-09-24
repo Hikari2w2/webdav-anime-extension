@@ -36,3 +36,8 @@ dependencies {
     compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     compileOnly("androidx.preference:preference-ktx:1.2.1")
 }
+
+dependencies {
+    compileOnly("io.reactivex:rxjava:1.3.8")
+    compileOnly("uy.kohesive.injekt:injekt-core:1.16.1")
+}

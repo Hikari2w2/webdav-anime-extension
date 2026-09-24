@@ -1,5 +1,6 @@
-import rx.Observable
 package eu.kanade.tachiyomi.animeextension.all.webdav
+
+import rx.Observable
 
 import android.app.Application
 import android.content.SharedPreferences
@@ -38,9 +39,8 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
     override val lang = "all"
     override val supportsLatest = true
 
-    private val preferences: SharedPreferences by lazy {
+    private val preferences: SharedPreferences get() = 
         Injekt.get<Application>().getSharedPreferences("source_$id", 0x0000)
-    }
 
     private val serverUrl get() = preferences.getString(PREF_SERVER_URL, "")?.trimEnd('/') ?: ""
     private val username get() = preferences.getString(PREF_USERNAME, "") ?: ""
@@ -165,7 +165,7 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
         }
     }
 
-    override fun fetchLatestAnime(page: Int) = fetchPopularAnime(page)
+    override fun fetchLatestUpdates(page: Int) = fetchPopularAnime(page)
     override fun fetchSearchAnime(page: Int, query: String, filters: AnimeFilterList) = fetchPopularAnime(page)
 
     // Unused standard methods

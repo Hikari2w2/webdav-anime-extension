@@ -4,7 +4,7 @@
     <application
         android:hasCode="true"
         android:label="Aniyomi: WebDAV Anime"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/ic_launcher">
         <meta-data
             android:name="tachiyomi.animeextension"
             android:value="1.0" />
