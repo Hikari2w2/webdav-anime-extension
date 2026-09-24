@@ -125,12 +125,12 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
             val propstat = element.getElementsByTagNameNS("*", "propstat").item(0) as? Element ?: continue
             val prop = propstat.getElementsByTagNameNS("*", "prop").item(0) as? Element ?: continue
             
-            var displayNameText = prop.getElementsByTagNameNS("*", "displayname").item(0)?.textContent
-            if (displayNameText.isNullOrEmpty()) {
-                val decoded = try { URLDecoder.decode(href.trimEnd('/').substringAfterLast('/'), "UTF-8") } catch (e: Exception) { href.trimEnd('/').substringAfterLast('/') }
-                displayNameText = decoded
+            val displayNameText = prop.getElementsByTagNameNS("*", "displayname").item(0)?.textContent
+            val displayName = if (displayNameText.isNullOrEmpty()) {
+                try { URLDecoder.decode(href.trimEnd('/').substringAfterLast('/'), "UTF-8") } catch (e: Exception) { href.trimEnd('/').substringAfterLast('/') }
+            } else {
+                displayNameText
             }
-            val displayName = displayNameText
             val isCollection = prop.getElementsByTagNameNS("*", "collection").length > 0 || href.endsWith("/")
             val contentLength = prop.getElementsByTagNameNS("*", "getcontentlength").item(0)?.textContent?.toLongOrNull() ?: 0L
             val lastModified = prop.getElementsByTagNameNS("*", "getlastmodified").item(0)?.textContent ?: ""
