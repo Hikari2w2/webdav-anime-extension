@@ -12,7 +12,7 @@
             android:value="1.0" />
         <meta-data
             android:name="tachiyomi.animeextension.class"
-            android:value="eu.kanade.tachiyomi.animeextension.all.webdav.WebDAV" />
+            android:value="eu.kanade.tachiyomi.animeextension.all.webdav.WebDavFactory" />
     </application>
 
 </manifest>

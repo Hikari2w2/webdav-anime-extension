@@ -1,0 +1,338 @@
+﻿2026-09-24T04:14:42.9758173Z Current runner version: '2.337.0'
+2026-09-24T04:14:42.9781511Z ##[group]Runner Image Provisioner
+2026-09-24T04:14:42.9782389Z Hosted Compute Agent
+2026-09-24T04:14:42.9782919Z Version: 20260828.587
+2026-09-24T04:14:42.9783559Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-24T04:14:42.9784266Z Build Date: 2026-08-28T16:44:25Z
+2026-09-24T04:14:42.9784909Z Worker ID: {ffc73664-6f34-47a2-96b2-467cb2d91db1}
+2026-09-24T04:14:42.9785574Z Azure Region: westus3
+2026-09-24T04:14:42.9786110Z ##[endgroup]
+2026-09-24T04:14:42.9787388Z ##[group]Operating System
+2026-09-24T04:14:42.9788088Z Ubuntu
+2026-09-24T04:14:42.9788789Z 24.04.5
+2026-09-24T04:14:42.9789294Z LTS
+2026-09-24T04:14:42.9789779Z ##[endgroup]
+2026-09-24T04:14:42.9790318Z ##[group]Runner Image
+2026-09-24T04:14:42.9790896Z Image: ubuntu-24.04
+2026-09-24T04:14:42.9791400Z Version: 20260920.314.1
+2026-09-24T04:14:42.9792592Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-24T04:14:42.9794059Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+2026-09-24T04:14:42.9794933Z ##[endgroup]
+2026-09-24T04:14:42.9796055Z ##[group]GITHUB_TOKEN Permissions
+2026-09-24T04:14:42.9798157Z Contents: read
+2026-09-24T04:14:42.9799174Z Metadata: read
+2026-09-24T04:14:42.9799787Z Packages: read
+2026-09-24T04:14:42.9800335Z ##[endgroup]
+2026-09-24T04:14:42.9802240Z Secret source: Actions
+2026-09-24T04:14:42.9803051Z Cache mode: write
+2026-09-24T04:14:42.9803705Z Prepare workflow directory
+2026-09-24T04:14:43.1096567Z Prepare all required actions
+2026-09-24T04:14:43.1160851Z Getting action download info
+2026-09-24T04:14:43.4195378Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-24T04:14:43.6333126Z Download action repository 'actions/setup-java@v4' (SHA:cf277c60eb25467037889841efdb72551f06f6c3)
+2026-09-24T04:14:44.5659489Z Download action repository 'gradle/actions@v3' (SHA:d9c87d481d55275bb5441eef3fe0e46805f9ef70)
+2026-09-24T04:14:46.0247296Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-24T04:14:46.2756913Z Complete job name: build
+2026-09-24T04:14:46.3301911Z ##[group]Run actions/checkout@v4
+2026-09-24T04:14:46.3302420Z with:
+2026-09-24T04:14:46.3302785Z   repository: Hikari2w2/webdav-anime-extension
+2026-09-24T04:14:46.3305007Z   token: ***
+2026-09-24T04:14:46.3305270Z   ssh-strict: true
+2026-09-24T04:14:46.3305585Z   ssh-user: git
+2026-09-24T04:14:46.3305874Z   persist-credentials: true
+2026-09-24T04:14:46.3306167Z   clean: true
+2026-09-24T04:14:46.3306476Z   sparse-checkout-cone-mode: true
+2026-09-24T04:14:46.3306810Z   fetch-depth: 1
+2026-09-24T04:14:46.3307108Z   fetch-tags: false
+2026-09-24T04:14:46.3307388Z   show-progress: true
+2026-09-24T04:14:46.3307687Z   lfs: false
+2026-09-24T04:14:46.3307977Z   submodules: false
+2026-09-24T04:14:46.3308494Z   set-safe-directory: true
+2026-09-24T04:14:46.3308919Z   allow-unsafe-pr-checkout: false
+2026-09-24T04:14:46.3309439Z ##[endgroup]
+2026-09-24T04:14:46.4244849Z Syncing repository: Hikari2w2/webdav-anime-extension
+2026-09-24T04:14:46.4246356Z ##[group]Getting Git version info
+2026-09-24T04:14:46.4247220Z Working directory is '/home/runner/work/webdav-anime-extension/webdav-anime-extension'
+2026-09-24T04:14:46.4248031Z [command]/usr/bin/git version
+2026-09-24T04:14:46.4323021Z git version 2.55.0
+2026-09-24T04:14:46.4345262Z ##[endgroup]
+2026-09-24T04:14:46.4350707Z Temporarily overriding HOME='/home/runner/work/_temp/98c8085e-5e6c-472e-b087-c739e3e08c93' before making global git config changes
+2026-09-24T04:14:46.4351755Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-24T04:14:46.4354075Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/webdav-anime-extension/webdav-anime-extension
+2026-09-24T04:14:46.4406563Z Deleting the contents of '/home/runner/work/webdav-anime-extension/webdav-anime-extension'
+2026-09-24T04:14:46.4410740Z ##[group]Initializing the repository
+2026-09-24T04:14:46.4415088Z [command]/usr/bin/git init /home/runner/work/webdav-anime-extension/webdav-anime-extension
+2026-09-24T04:14:46.4518119Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-24T04:14:46.4519242Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-24T04:14:46.4520272Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-24T04:14:46.4520904Z hint: call:
+2026-09-24T04:14:46.4521555Z hint:
+2026-09-24T04:14:46.4522154Z hint: 	git config --global init.defaultBranch <name>
+2026-09-24T04:14:46.4522718Z hint:
+2026-09-24T04:14:46.4523284Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-24T04:14:46.4524086Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-24T04:14:46.4524769Z hint:
+2026-09-24T04:14:46.4525204Z hint: 	git branch -m <name>
+2026-09-24T04:14:46.4525606Z hint:
+2026-09-24T04:14:46.4538921Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-24T04:14:46.4540080Z Initialized empty Git repository in /home/runner/work/webdav-anime-extension/webdav-anime-extension/.git/
+2026-09-24T04:14:46.4541858Z [command]/usr/bin/git remote add origin https://github.com/Hikari2w2/webdav-anime-extension
+2026-09-24T04:14:46.4579403Z ##[endgroup]
+2026-09-24T04:14:46.4580523Z ##[group]Disabling automatic garbage collection
+2026-09-24T04:14:46.4583572Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-24T04:14:46.4610532Z ##[endgroup]
+2026-09-24T04:14:46.4611306Z ##[group]Setting up auth
+2026-09-24T04:14:46.4617035Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-24T04:14:46.4643898Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-24T04:14:46.4982973Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-24T04:14:46.5012161Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-24T04:14:46.5193758Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-24T04:14:46.5222423Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-24T04:14:46.5389085Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-24T04:14:46.5438727Z ##[endgroup]
+2026-09-24T04:14:46.5439602Z ##[group]Fetching the repository
+2026-09-24T04:14:46.5448052Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +b7664f2c84d1f01ae4cce59412f7747531aa0ab8:refs/remotes/origin/main
+2026-09-24T04:14:47.0205721Z From https://github.com/Hikari2w2/webdav-anime-extension
+2026-09-24T04:14:47.0206722Z  * [new ref]         b7664f2c84d1f01ae4cce59412f7747531aa0ab8 -> origin/main
+2026-09-24T04:14:47.0221219Z ##[endgroup]
+2026-09-24T04:14:47.0222048Z ##[group]Determining the checkout info
+2026-09-24T04:14:47.0222886Z ##[endgroup]
+2026-09-24T04:14:47.0223288Z [command]/usr/bin/git sparse-checkout disable
+2026-09-24T04:14:47.0311257Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-24T04:14:47.0339876Z ##[group]Checking out the ref
+2026-09-24T04:14:47.0345300Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-24T04:14:47.0406432Z Switched to a new branch 'main'
+2026-09-24T04:14:47.0412369Z branch 'main' set up to track 'origin/main'.
+2026-09-24T04:14:47.0415703Z ##[endgroup]
+2026-09-24T04:14:47.0449087Z [command]/usr/bin/git log -1 --format=%H
+2026-09-24T04:14:47.0467625Z b7664f2c84d1f01ae4cce59412f7747531aa0ab8
+2026-09-24T04:14:47.0784664Z ##[group]Run actions/setup-java@v4
+2026-09-24T04:14:47.0785019Z with:
+2026-09-24T04:14:47.0785311Z   java-version: 17
+2026-09-24T04:14:47.0785647Z   distribution: temurin
+2026-09-24T04:14:47.0785928Z   java-package: jdk
+2026-09-24T04:14:47.0786260Z   check-latest: false
+2026-09-24T04:14:47.0786543Z   server-id: github
+2026-09-24T04:14:47.0786836Z   server-username: GITHUB_ACTOR
+2026-09-24T04:14:47.0787173Z   server-password: GITHUB_TOKEN
+2026-09-24T04:14:47.0787499Z   overwrite-settings: true
+2026-09-24T04:14:47.0787846Z   job-status: success
+2026-09-24T04:14:47.0790368Z   token: ***
+2026-09-24T04:14:47.0790662Z ##[endgroup]
+2026-09-24T04:14:47.2259268Z ##[warning]setup-java v4 is deprecated and will no longer receive updates. Please migrate to actions/setup-java@v5.
+2026-09-24T04:14:47.2266393Z ##[group]Installed distributions
+2026-09-24T04:14:47.2299829Z Resolved Java 17.0.20+1 from tool-cache
+2026-09-24T04:14:47.2300343Z Setting Java 17.0.20+1 as the default
+2026-09-24T04:14:47.2307554Z (node:2027) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-24T04:14:47.2308226Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-24T04:14:47.2310293Z Creating toolchains.xml for JDK version 17 from temurin
+2026-09-24T04:14:47.2376416Z Writing to /home/runner/.m2/toolchains.xml
+2026-09-24T04:14:47.2379030Z 
+2026-09-24T04:14:47.2379557Z Java configuration:
+2026-09-24T04:14:47.2379976Z   Distribution: temurin
+2026-09-24T04:14:47.2380488Z   Version: 17.0.20+1
+2026-09-24T04:14:47.2381028Z   Path: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-09-24T04:14:47.2381436Z 
+2026-09-24T04:14:47.2381998Z ##[endgroup]
+2026-09-24T04:14:47.2399236Z Creating settings.xml with server-id: github
+2026-09-24T04:14:47.2502895Z Writing to /home/runner/.m2/settings.xml
+2026-09-24T04:14:47.2813437Z ##[group]Run gradle/actions/setup-gradle@v3
+2026-09-24T04:14:47.2813718Z with:
+2026-09-24T04:14:47.2813931Z   gradle-version: 8.6
+2026-09-24T04:14:47.2814193Z   cache-disabled: false
+2026-09-24T04:14:47.2814411Z   cache-read-only: false
+2026-09-24T04:14:47.2814628Z   cache-write-only: false
+2026-09-24T04:14:47.2814854Z   cache-overwrite-existing: false
+2026-09-24T04:14:47.2815160Z   gradle-home-cache-includes: caches
+notifications
+
+2026-09-24T04:14:47.2815452Z   gradle-home-cache-cleanup: false
+2026-09-24T04:14:47.2815693Z   add-job-summary: always
+2026-09-24T04:14:47.2815928Z   add-job-summary-as-pr-comment: never
+2026-09-24T04:14:47.2816176Z   dependency-graph: disabled
+2026-09-24T04:14:47.2816423Z   dependency-graph-continue-on-failure: true
+2026-09-24T04:14:47.2816685Z   build-scan-publish: false
+2026-09-24T04:14:47.2816901Z   validate-wrappers: false
+2026-09-24T04:14:47.2817116Z   generate-job-summary: true
+2026-09-24T04:14:47.2817349Z   gradle-home-cache-strict-match: false
+2026-09-24T04:14:47.2817631Z   workflow-job-context: null
+2026-09-24T04:14:47.2819980Z   github-token: ***
+2026-09-24T04:14:47.2820197Z env:
+2026-09-24T04:14:47.2820461Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-09-24T04:14:47.2820868Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-09-24T04:14:47.2821191Z ##[endgroup]
+2026-09-24T04:14:47.4545544Z (node:2040) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-24T04:14:47.6012154Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-24T04:14:47.6471395Z Merged default JDK locations into /home/runner/.m2/toolchains.xml
+2026-09-24T04:14:47.6472460Z ##[group]Restore Gradle state from cache
+2026-09-24T04:14:47.7154551Z ##[warning]Failed to restore gradle-home-v1|Linux|build[5cefc50b9253dc3347242ab88a605e3b]-b7664f2c84d1f01ae4cce59412f7747531aa0ab8: Error: Cache service responded with 400
+2026-09-24T04:14:47.7264636Z Gradle User Home cache not found. Will initialize empty.
+2026-09-24T04:14:47.7265804Z ##[endgroup]
+2026-09-24T04:14:47.8367232Z ##[group]Provision Gradle 8.6
+2026-09-24T04:14:47.8677141Z ##[warning]Restore Gradle distribution 8.6 failed: Error: Cache service responded with 400
+2026-09-24T04:14:47.8679413Z Gradle distribution 8.6 not found in cache. Will download.
+2026-09-24T04:14:48.7405404Z Downloaded https://services.gradle.org/distributions/gradle-8.6-bin.zip to /home/runner/gradle-installations/downloads/gradle-8.6-bin.zip (size 132788867)
+2026-09-24T04:14:48.7531382Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:14:48.9393647Z ##[warning]Save Gradle distribution 8.6 failed: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0uKO0agAAAAASnua2i0E2RKCFZPXJPbQUUEhYMzFFREdFMDIxMABFZGdl
+2026-09-24T04:14:48.9405501Z [command]/usr/bin/unzip -o -q /home/runner/gradle-installations/downloads/gradle-8.6-bin.zip
+2026-09-24T04:14:49.8906782Z Extracted Gradle 8.6 to /home/runner/gradle-installations/installs/gradle-8.6
+2026-09-24T04:14:49.8907786Z Provisioned Gradle executable /home/runner/gradle-installations/installs/gradle-8.6/bin/gradle
+2026-09-24T04:14:49.8908979Z ##[endgroup]
+2026-09-24T04:14:49.9019693Z ##[group]Run gradle assembleDebug
+2026-09-24T04:14:49.9020123Z [36;1mgradle assembleDebug[0m
+2026-09-24T04:14:49.9363610Z shell: /usr/bin/bash -e {0}
+2026-09-24T04:14:49.9363894Z env:
+2026-09-24T04:14:49.9364195Z   JAVA_HOME: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-09-24T04:14:49.9364624Z   JAVA_HOME_17_X64: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.20-1/x64
+2026-09-24T04:14:49.9365003Z   GRADLE_ACTION_ID: gradle/actions/setup-gradle
+2026-09-24T04:14:49.9365318Z   GRADLE_BUILD_ACTION_SETUP_COMPLETED: true
+2026-09-24T04:14:49.9365606Z   GRADLE_BUILD_ACTION_CACHE_RESTORED: true
+2026-09-24T04:14:49.9366009Z   DEVELOCITY_INJECTION_INIT_SCRIPT_NAME: gradle-actions.inject-develocity.init.gradle
+2026-09-24T04:14:49.9366492Z   DEVELOCITY_AUTO_INJECTION_CUSTOM_VALUE: gradle-actions
+2026-09-24T04:14:49.9366805Z   GITHUB_DEPENDENCY_GRAPH_ENABLED: false
+2026-09-24T04:14:49.9367048Z ##[endgroup]
+2026-09-24T04:14:50.4292424Z 
+2026-09-24T04:14:50.4294222Z Welcome to Gradle 8.6!
+2026-09-24T04:14:50.4294548Z 
+2026-09-24T04:14:50.4300971Z Here are the highlights of this release:
+2026-09-24T04:14:50.4309630Z  - Configurable encryption key for configuration cache
+2026-09-24T04:14:50.4310401Z  - Build init improvements
+2026-09-24T04:14:50.4310772Z  - Build authoring improvements
+2026-09-24T04:14:50.4310998Z 
+2026-09-24T04:14:50.4311447Z For more details see https://docs.gradle.org/8.6/release-notes.html
+2026-09-24T04:14:50.4311811Z 
+2026-09-24T04:14:50.5280234Z Starting a Gradle Daemon (subsequent builds will be faster)
+2026-09-24T04:15:45.9277011Z Checking the license for package Android SDK Build-Tools 33.0.1 in /usr/local/lib/android/sdk/licenses
+2026-09-24T04:15:45.9299794Z License for package Android SDK Build-Tools 33.0.1 accepted.
+2026-09-24T04:15:45.9323828Z Preparing "Install Android SDK Build-Tools 33.0.1 v.33.0.1".
+2026-09-24T04:15:48.5274720Z "Install Android SDK Build-Tools 33.0.1 v.33.0.1" ready.
+2026-09-24T04:15:48.5275801Z Installing Android SDK Build-Tools 33.0.1 in /usr/local/lib/android/sdk/build-tools/33.0.1
+2026-09-24T04:15:48.5276608Z "Install Android SDK Build-Tools 33.0.1 v.33.0.1" complete.
+2026-09-24T04:15:48.9274673Z "Install Android SDK Build-Tools 33.0.1 v.33.0.1" finished.
+2026-09-24T04:15:49.4285571Z > Task :preBuild UP-TO-DATE
+2026-09-24T04:15:49.4290765Z > Task :preDebugBuild UP-TO-DATE
+2026-09-24T04:15:49.4291491Z > Task :mergeDebugNativeDebugMetadata NO-SOURCE
+2026-09-24T04:15:50.1305457Z > Task :generateDebugResValues
+2026-09-24T04:15:50.1330601Z > Task :checkDebugAarMetadata
+2026-09-24T04:15:50.1360521Z > Task :mapDebugSourceSetPaths
+2026-09-24T04:15:50.1392505Z > Task :generateDebugResources
+2026-09-24T04:15:50.3275240Z > Task :packageDebugResources
+2026-09-24T04:15:50.3276302Z > Task :mergeDebugResources
+2026-09-24T04:15:51.4276607Z > Task :createDebugCompatibleScreenManifests
+2026-09-24T04:15:51.4277457Z > Task :extractDeepLinksDebug
+2026-09-24T04:15:51.4277967Z > Task :parseDebugLocalResources
+2026-09-24T04:15:51.5294706Z > Task :processDebugMainManifest
+2026-09-24T04:15:51.6273686Z > Task :processDebugManifest
+2026-09-24T04:15:51.6276938Z > Task :javaPreCompileDebug
+2026-09-24T04:15:51.6277358Z > Task :processDebugManifestForPackage
+2026-09-24T04:15:57.8286098Z > Task :mergeDebugShaders
+2026-09-24T04:15:57.8313056Z > Task :compileDebugShaders NO-SOURCE
+2026-09-24T04:15:57.8339424Z > Task :generateDebugAssets UP-TO-DATE
+2026-09-24T04:15:57.8369254Z > Task :mergeDebugAssets
+2026-09-24T04:15:57.8388988Z > Task :compressDebugAssets
+2026-09-24T04:15:57.9291702Z > Task :processDebugResources
+2026-09-24T04:15:58.9275648Z > Task :checkDebugDuplicateClasses
+2026-09-24T04:16:04.8289670Z > Task :desugarDebugFileDependencies
+2026-09-24T04:16:14.2288745Z 
+2026-09-24T04:16:14.2302486Z > Task :compileDebugKotlin FAILED
+2026-09-24T04:16:14.2350622Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:1 Expecting a top level declaration
+2026-09-24T04:16:14.2391037Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:9 Expecting a top level declaration
+2026-09-24T04:16:14.2393962Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:11 Expecting a top level declaration
+2026-09-24T04:16:14.2419809Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:12 Expecting a top level declaration
+2026-09-24T04:16:14.2439376Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:18 Expecting a top level declaration
+2026-09-24T04:16:14.2441439Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:19 Expecting a top level declaration
+2026-09-24T04:16:14.2446506Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:28 Expecting a top level declaration
+2026-09-24T04:16:14.2449387Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:29 Expecting a top level declaration
+2026-09-24T04:16:14.2451427Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:43 Expecting a top level declaration
+2026-09-24T04:16:14.2453363Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:44 Expecting a top level declaration
+2026-09-24T04:16:14.2455368Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:47 Expecting a top level declaration
+2026-09-24T04:16:14.2457376Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:48 Expecting a top level declaration
+2026-09-24T04:16:14.2459813Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:2:54 imports are only allowed in the beginning of file
+2026-09-24T04:16:14.2461779Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:1:8 Unresolved reference: rx
+2026-09-24T04:16:14.2463655Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:30:8 Unresolved reference: uy
+2026-09-24T04:16:14.2465907Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:31:8 Unresolved reference: uy
+2026-09-24T04:16:14.2468192Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:41:51 Property delegate must have a 'getValue(WebDAV, KProperty<*>)' method. None of the following functions is suitable: 
+2026-09-24T04:16:14.2470273Z public inline operator fun <T> Lazy<SharedPreferences>.getValue(thisRef: Any?, property: KProperty<*>): SharedPreferences defined in kotlin
+2026-09-24T04:16:14.2471836Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:42:9 Unresolved reference: Injekt
+2026-09-24T04:16:14.2473659Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:135:48 Unresolved reference: rx
+2026-09-24T04:16:14.2475799Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:136:16 Unresolved reference: rx
+2026-09-24T04:16:14.2477594Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:168:5 'fetchLatestAnime' overrides nothing
+2026-09-24T04:16:14.2479798Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:180:52 Unresolved reference: rx
+2026-09-24T04:16:14.2481644Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:181:16 Unresolved reference: rx
+2026-09-24T04:16:14.2483413Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:227:51 Unresolved reference: rx
+2026-09-24T04:16:14.2485252Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:228:16 Unresolved reference: rx
+2026-09-24T04:16:14.2487008Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:293:53 Unresolved reference: rx
+2026-09-24T04:16:14.2488956Z e: file:///home/runner/work/webdav-anime-extension/webdav-anime-extension/src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt:294:16 Unresolved reference: rx
+2026-09-24T04:16:19.1279263Z 
+2026-09-24T04:16:19.1279299Z 
+2026-09-24T04:16:19.1280608Z FAILURE: Build failed with an exception.
+2026-09-24T04:16:19.1299465Z > Task :mergeExtDexDebug
+2026-09-24T04:16:19.1304959Z 
+2026-09-24T04:16:19.1305541Z * What went wrong:
+2026-09-24T04:16:19.1306105Z Execution failed for task ':compileDebugKotlin'.
+2026-09-24T04:16:19.1307385Z > A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+2026-09-24T04:16:19.1308820Z 20 actionable tasks: 20 executed
+2026-09-24T04:16:19.1309392Z    > Compilation error. See log for more details
+2026-09-24T04:16:19.1309814Z 
+2026-09-24T04:16:19.1310043Z * Try:
+2026-09-24T04:16:19.1310520Z > Run with --stacktrace option to get the stack trace.
+2026-09-24T04:16:19.1311095Z > Run with --info or --debug option to get more log output.
+2026-09-24T04:16:19.1314009Z > Run with --scan to get full insights.
+2026-09-24T04:16:19.1316787Z > Get more help at https://help.gradle.org.
+2026-09-24T04:16:19.1317216Z 
+2026-09-24T04:16:19.1317453Z BUILD FAILED in 1m 29s
+2026-09-24T04:16:19.5641413Z ##[error]Process completed with exit code 1.
+2026-09-24T04:16:19.5811117Z Post job cleanup.
+2026-09-24T04:16:19.7541514Z In post-action step
+2026-09-24T04:16:19.7548801Z Stopping all Gradle daemons before saving Gradle User Home state
+2026-09-24T04:16:19.7549329Z Stopping Gradle daemons for /home/runner/gradle-installations/installs/gradle-8.6
+2026-09-24T04:16:19.7560158Z (node:2393) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-24T04:16:19.7560816Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-24T04:16:19.7565454Z [command]/home/runner/gradle-installations/installs/gradle-8.6/bin/gradle --stop
+2026-09-24T04:16:20.5637034Z Stopping Daemon(s)
+2026-09-24T04:16:20.5637665Z 1 Daemon stopped
+2026-09-24T04:16:20.5824892Z ##[group]Caching Gradle state
+2026-09-24T04:16:20.6081067Z Caching generated-gradle-jars with path '/home/runner/.gradle/caches/8.6/generated-gradle-jars/gradle-api-8.6.jar' and cache key: gradle-generated-gradle-jars-v1-724640d9b6d38238f67abd00073cebeb
+2026-09-24T04:16:20.6177196Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:16:20.8080153Z Caching dependencies with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and cache key: gradle-dependencies-v1-7cd33364f7e0d8bfb814ec5df65c6f4b
+2026-09-24T04:16:20.8135503Z Caching instrumented-jars with path '/home/runner/.gradle/caches/jars-*/*/' and cache key: gradle-instrumented-jars-v1-ffa28fcc8de9827cb603ce1045ab91c1
+2026-09-24T04:16:20.8239701Z Caching kotlin-dsl with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+2026-09-24T04:16:20.8242423Z /home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and cache key: gradle-kotlin-dsl-v1-01bb874e282cba1ac2bc46e81dadd004
+2026-09-24T04:16:20.8469245Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:16:20.8600355Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:16:20.9063667Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/jars-*/*/' and key: gradle-instrumented-jars-v1-ffa28fcc8de9827cb603ce1045ab91c1: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0FKS0agAAAAAO4fFh36C4TJCdvaYmV+lqUEhYMzFFREdFMDYwNwBFZGdl
+2026-09-24T04:16:20.9642483Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/*/kotlin-dsl/accessors/*/
+/home/runner/.gradle/caches/*/kotlin-dsl/scripts/*/' and key: gradle-kotlin-dsl-v1-01bb874e282cba1ac2bc46e81dadd004: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0FKS0agAAAACH2jC1KkxJToifpZhTTBSQUEhYMzFFREdFMDIxMwBFZGdl
+2026-09-24T04:16:21.1219278Z Caching transforms with path '/home/runner/.gradle/caches/transforms-4/*/
+2026-09-24T04:16:21.1220123Z /home/runner/.gradle/caches/*/transforms/*/' and cache key: gradle-transforms-v1-012c74eae0f17a7757703517b817bd75
+2026-09-24T04:16:21.1230256Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/8.6/generated-gradle-jars/gradle-api-8.6.jar' and key: gradle-generated-gradle-jars-v1-724640d9b6d38238f67abd00073cebeb: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0FaS0agAAAADcy3R9i/qITLHx4re6ixbIUEhYMzFFREdFMDUxNgBFZGdl
+2026-09-24T04:16:21.2182364Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:16:21.2963612Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:16:22.0504089Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*' and key: gradle-dependencies-v1-7cd33364f7e0d8bfb814ec5df65c6f4b: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0FqS0agAAAABSxJNGJYCTRJL/X3T6bTS9UEhYMzFFREdFMDYxMgBFZGdl
+2026-09-24T04:16:22.4359272Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches/transforms-4/*/
+/home/runner/.gradle/caches/*/transforms/*/' and key: gradle-transforms-v1-012c74eae0f17a7757703517b817bd75: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0FqS0agAAAADb1l9XAiyOTLXv/qp2R0GYUEhYMzFFREdFMDYyMQBFZGdl
+2026-09-24T04:16:22.5875308Z Caching Gradle User Home with cache key: gradle-home-v1|Linux|build[5cefc50b9253dc3347242ab88a605e3b]-b7664f2c84d1f01ae4cce59412f7747531aa0ab8
+2026-09-24T04:16:22.5947537Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/webdav-anime-extension/webdav-anime-extension --files-from manifest.txt --use-compress-program zstdmt
+2026-09-24T04:16:22.6836184Z ##[warning]Failed to save cache entry with path '/home/runner/.gradle/caches,/home/runner/.gradle/notifications,/home/runner/.gradle/.setup-gradle' and key: gradle-home-v1|Linux|build[5cefc50b9253dc3347242ab88a605e3b]-b7664f2c84d1f01ae4cce59412f7747531aa0ab8: Error: <h2>Our services aren't available right now</h2><p>We're working to restore all services as soon as possible. Please check back soon.</p>0FqS0agAAAAD0j5Qct2HLQr7Xu6BpNwhSUEhYMzFFREdFMDUwNwBFZGdl
+2026-09-24T04:16:22.6839675Z ##[endgroup]
+2026-09-24T04:16:22.6841386Z Generating Job Summary
+2026-09-24T04:16:22.6852168Z Completed post-action step
+2026-09-24T04:16:22.6999607Z Post job cleanup.
+2026-09-24T04:16:22.8200264Z (node:2499) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-24T04:16:22.8201548Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-24T04:16:22.8353251Z Post job cleanup.
+2026-09-24T04:16:22.9189599Z [command]/usr/bin/git version
+2026-09-24T04:16:22.9239696Z git version 2.55.0
+2026-09-24T04:16:22.9271511Z Temporarily overriding HOME='/home/runner/work/_temp/c3163e41-f450-4cf6-a043-3260fa1ab508' before making global git config changes
+2026-09-24T04:16:22.9272973Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-24T04:16:22.9278923Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/webdav-anime-extension/webdav-anime-extension
+2026-09-24T04:16:22.9339237Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-24T04:16:22.9381901Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-24T04:16:22.9588197Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-24T04:16:22.9612647Z http.https://github.com/.extraheader
+2026-09-24T04:16:22.9623068Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-24T04:16:22.9664839Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-24T04:16:22.9873981Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-24T04:16:22.9905904Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-24T04:16:23.0309996Z Cleaning up orphan processes
+2026-09-24T04:16:23.0513709Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-java@v4, gradle/actions/setup-gradle@v3. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

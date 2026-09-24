@@ -1,4 +1,4 @@
-package eu.kanade.tachiyomi.animeextension.all.webdav
+code = """package eu.kanade.tachiyomi.animeextension.all.webdav
 
 import android.app.Application
 import android.content.SharedPreferences
@@ -74,7 +74,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
     }
 
     private fun propfindRequest(url: String, depth: String = "1"): Request {
-        val xml = """<?xml version="1.0" encoding="utf-8" ?>
+        val xml = \"\"\"<?xml version="1.0" encoding="utf-8" ?>
             <D:propfind xmlns:D="DAV:">
                 <D:prop>
                     <D:displayname/>
@@ -83,7 +83,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
                     <D:getlastmodified/>
                 </D:prop>
             </D:propfind>
-        """.trimIndent()
+        \"\"\".trimIndent()
         return Request.Builder()
             .url(url)
             .method("PROPFIND", xml.toRequestBody("application/xml".toMediaType()))
@@ -255,7 +255,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
                 // Only keep files directly in the root folder
                 videoFiles = videoFiles.filter {
                     val fileDir = it.href.trimEnd('/').substringBeforeLast('/')
-                    fileDir == rootUrlNoSlash || fileDir == folderUrl.trimEnd('/')
+                    fileDir == rootUrlNoSlash
                 }
             }
             
@@ -309,7 +309,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
                     if (scanlatorParts.isNotEmpty()) {
                         this.scanlator = scanlatorParts.joinToString(" • ")
                     } else {
-                        this.scanlator = " \u200B "
+                        this.scanlator = " \\u200B "
                     }
                     
                     if (showDate) {
@@ -357,7 +357,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
             key = "fake_key_server_count_${serverId}"
             title = "Total Server Instances (Global)"
             val currentCount = globalPrefs.getInt("server_count", 3)
-            summary = "Number of WebDAV servers to show. Requires App Restart.\nCurrent: $currentCount"
+            summary = "Number of WebDAV servers to show. Requires App Restart.\\nCurrent: $currentCount"
             entries = (1..10).map { it.toString() }.toTypedArray()
             entryValues = (1..10).map { it.toString() }.toTypedArray()
             setDefaultValue(currentCount.toString())
@@ -365,7 +365,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
             setOnPreferenceChangeListener { _, newValue ->
                 val count = (newValue as String).toInt()
                 globalPrefs.edit().putInt("server_count", count).apply()
-                summary = "Number of WebDAV servers to show. Requires App Restart.\nCurrent: $count"
+                summary = "Number of WebDAV servers to show. Requires App Restart.\\nCurrent: $count"
                 true
             }
         }
@@ -373,7 +373,7 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
         val folderModePref = ListPreference(screen.context).apply {
             key = PREF_FOLDER_MODE
             title = "Folder Mode"
-            summary = "Structured: Subfolders only (Depth 1)\nFlattened: All videos recursively (Depth infinity)\nCurrent: %s"
+            summary = "Structured: Subfolders only (Depth 1)\\nFlattened: All videos recursively (Depth infinity)\\nCurrent: %s"
             entries = arrayOf("Structured", "Flattened")
             entryValues = arrayOf("structured", "flattened")
             setDefaultValue("structured")
@@ -464,3 +464,9 @@ data class EpisodeMeta(
     val date_upload: Long?,
     val scanlator: String?
 )
+"""
+
+with open("src/main/java/eu/kanade/tachiyomi/animeextension/all/webdav/WebDAV.kt", "w") as f:
+    f.write(code)
+
+print("Done")
