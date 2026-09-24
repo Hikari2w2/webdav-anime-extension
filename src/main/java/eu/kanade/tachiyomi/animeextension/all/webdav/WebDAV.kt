@@ -294,6 +294,8 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
                     
                     if (scanlatorParts.isNotEmpty()) {
                         this.scanlator = scanlatorParts.joinToString(" • ")
+                    } else {
+                        this.scanlator = " ​ "
                     }
                     
                     if (showDate) {
@@ -308,6 +310,8 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
                                 }
                             } catch (e: Exception) {}
                         }
+                    } else {
+                        this.date_upload = -1L
                     }
                 }
             }.reversed() // Aniyomi expects newest first usually
