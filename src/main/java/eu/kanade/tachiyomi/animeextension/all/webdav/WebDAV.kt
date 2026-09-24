@@ -30,6 +30,9 @@ import okhttp3.Response
 import org.w3c.dom.Element
 import uy.kohesive.injekt.Injekt
 import uy.kohesive.injekt.api.get
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.net.URLDecoder
 import java.io.ByteArrayInputStream
 import javax.xml.parsers.DocumentBuilderFactory
 
@@ -122,7 +125,12 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
             val propstat = element.getElementsByTagNameNS("*", "propstat").item(0) as? Element ?: continue
             val prop = propstat.getElementsByTagNameNS("*", "prop").item(0) as? Element ?: continue
             
-            val displayName = prop.getElementsByTagNameNS("*", "displayname").item(0)?.textContent ?: href.trimEnd('/').substringAfterLast('/')
+            var displayNameText = prop.getElementsByTagNameNS("*", "displayname").item(0)?.textContent
+            if (displayNameText.isNullOrEmpty()) {
+                val decoded = try { URLDecoder.decode(href.trimEnd('/').substringAfterLast('/'), "UTF-8") } catch (e: Exception) { href.trimEnd('/').substringAfterLast('/') }
+                displayNameText = decoded
+            }
+            val displayName = displayNameText
             val isCollection = prop.getElementsByTagNameNS("*", "collection").length > 0 || href.endsWith("/")
             val contentLength = prop.getElementsByTagNameNS("*", "getcontentlength").item(0)?.textContent?.toLongOrNull() ?: 0L
             val lastModified = prop.getElementsByTagNameNS("*", "getlastmodified").item(0)?.textContent ?: ""
@@ -150,7 +158,8 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
                     SAnime.create().apply {
                         title = file.displayName
                         // We store the full URL to the folder in url
-                        val folderUrl = if (file.href.startsWith("http")) file.href else serverUrl.replace(Regex("(https?://[^/]+).*"), "$1") + file.href
+                        var folderUrl = if (file.href.startsWith("http")) file.href else serverUrl.replace(Regex("(https?://[^/]+).*"), "$1") + if (file.href.startsWith("/")) file.href else "/${file.href}"
+                        if (file.isCollection && !folderUrl.endsWith("/")) folderUrl += "/"
                         this.url = folderUrl
                         
                         // Try to find the cover. We will need a separate PROPFIND for each folder or just let details fetch it.
@@ -267,20 +276,38 @@ class WebDAV : AnimeHttpSource(), ConfigurableAnimeSource {
                     this.name = baseName
                     this.url = buildFullUrl(file.href) // We store direct file url
                     
-                    if (showSize && file.contentLength > 0) {
-                        val sizeMb = file.contentLength / (1024 * 1024)
-                        this.name += " [${sizeMb}MB]"
-                    }
-
                     val meta = episodesMeta[epNum.toInt().toString()] ?: episodesMeta[epNum.toString()]
                     if (meta?.name != null) {
                         this.name = meta.name
                     }
-                    if (showDate && meta?.date_upload != null) {
-                        this.date_upload = meta.date_upload
+                    
+                    val scanlatorParts = mutableListOf<String>()
+                    
+                    if (showSize && file.contentLength > 0) {
+                        val sizeMb = String.format(Locale.US, "%.2f MB", file.contentLength / (1024.0 * 1024.0))
+                        scanlatorParts.add(sizeMb)
                     }
+                    
                     if (showScanlator && meta?.scanlator != null) {
-                        this.scanlator = meta.scanlator
+                        scanlatorParts.add(meta.scanlator)
+                    }
+                    
+                    if (scanlatorParts.isNotEmpty()) {
+                        this.scanlator = scanlatorParts.joinToString(" • ")
+                    }
+                    
+                    if (showDate) {
+                        if (meta?.date_upload != null) {
+                            this.date_upload = meta.date_upload
+                        } else if (file.lastModified.isNotEmpty()) {
+                            try {
+                                val format = SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US)
+                                val time = format.parse(file.lastModified)?.time
+                                if (time != null) {
+                                    this.date_upload = time
+                                }
+                            } catch (e: Exception) {}
+                        }
                     }
                 }
             }.reversed() // Aniyomi expects newest first usually
