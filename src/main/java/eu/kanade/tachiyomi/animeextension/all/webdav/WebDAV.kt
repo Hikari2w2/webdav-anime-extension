@@ -46,7 +46,7 @@ class WebDavFactory : AnimeSourceFactory {
 class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSource {
 
     override val name = "WebDAV Server $serverId"
-    override val baseUrl = "http://localhost" // Not really used, we rely on user prefs
+    override val baseUrl: String get() = serverUrl.ifEmpty { "http://localhost" }
     override val lang = "all"
     override val supportsLatest = false
 
@@ -64,14 +64,17 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
 
     private val json = Json { ignoreUnknownKeys = true }
 
-    override fun headersBuilder(): Headers.Builder {
-        val builder = super.headersBuilder()
-        if (username.isNotEmpty() && password.isNotEmpty()) {
-            val auth = okhttp3.Credentials.basic(username, password)
-            builder.add("Authorization", auth)
+    override val client = network.client.newBuilder()
+        .addInterceptor { chain ->
+            val original = chain.request()
+            val builder = original.newBuilder()
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                val auth = okhttp3.Credentials.basic(username, password)
+                builder.header("Authorization", auth)
+            }
+            chain.proceed(builder.build())
         }
-        return builder
-    }
+        .build()
 
     private fun propfindRequest(url: String, depth: String = "1"): Request {
         val xml = """<?xml version="1.0" encoding="utf-8" ?>
@@ -337,7 +340,11 @@ class WebDAV(private val serverId: Int) : AnimeHttpSource(), ConfigurableAnimeSo
     // --- Videos ---
     override fun fetchVideoList(episode: SEpisode): rx.Observable<List<Video>> {
         return rx.Observable.fromCallable {
-            listOf(Video(episode.url, "WebDAV Stream", episode.url, headers))
+                        val h = Headers.Builder()
+            if (username.isNotEmpty() && password.isNotEmpty()) {
+                h.add("Authorization", okhttp3.Credentials.basic(username, password))
+            }
+            listOf(Video(episode.url, "WebDAV Stream", episode.url, h.build()))
         }
     }
     
