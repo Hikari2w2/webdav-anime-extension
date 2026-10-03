@@ -21,8 +21,8 @@ android {
         applicationId = "eu.kanade.tachiyomi.animeextension.all.webdav"
         minSdk = 21
         targetSdk = 34
-        versionCode = 1
-        versionName = "14.1"
+        versionCode = 2
+        versionName = "14.2"
     }
 
     buildTypes {
@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    compileOnly("com.github.komikku-app:aniyomi-extensions-lib:13")
+    compileOnly("com.github.komikku-app:aniyomi-extensions-lib:14")
     compileOnly("com.squareup.okhttp3:okhttp:4.11.0")
     compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     compileOnly("androidx.preference:preference-ktx:1.2.1")
