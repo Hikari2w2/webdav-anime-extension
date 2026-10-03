@@ -72,12 +72,12 @@ jobs:
                   "iconUrl": "https://raw.githubusercontent.com/Hikari2w2/webdav-anime-extension/repo/icon.png"
                 },
                 "extensionLib": "14",
-                "versionCode": "${VERSION_CODE}",
+                "versionCode": ${VERSION_CODE},
                 "versionName": "${VERSION_NAME}",
                 "contentWarning": "CONTENT_WARNING_SAFE",
                 "sources": [
                   {
-                    "id": "10000",
+                    "id": 10000,
                     "name": "WebDAV Server 1",
                     "language": "all"
                   }
