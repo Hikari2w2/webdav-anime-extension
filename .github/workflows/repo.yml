@@ -43,6 +43,17 @@ jobs:
         VERSION_CODE=$(grep "versionCode = " build.gradle.kts | grep -o "[0-9]*")
         VERSION_NAME=$(grep "versionName = " build.gradle.kts | grep -o '".*"' | tr -d '"')
         
+        
+        cat <<JSON > repo.json
+        {
+          "meta": {
+            "name": "WebDAV Anime",
+            "website": "https://github.com/Hikari2w2/webdav-anime-extension",
+            "signingKeyFingerprint": "849ea632cba0df7a13cacff8abf659111b56ea9110fe33d4dbcd1c73cba7ece0"
+          }
+        }
+        JSON
+        
         cat <<JSON > index.min.json
         {
           "name": "WebDAV Anime",
@@ -79,6 +90,6 @@ jobs:
         
         git checkout --orphan repo
         git rm -rf .
-        git add webdav-anime-extension.apk icon.png index.min.json
+        git add webdav-anime-extension.apk icon.png index.min.json repo.json
         git commit -m "Update repo index and APK"
         git push origin repo --force
