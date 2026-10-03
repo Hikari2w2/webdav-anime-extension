@@ -1,0 +1,81 @@
+name: Build and Publish Repo
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.6'
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
+
+    - name: Prepare Repo Branch
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        
+        APK_PATH=$(find build/outputs/apk/release -name "*.apk" | head -n 1)
+        cp $APK_PATH webdav-anime-extension.apk
+        
+        # Copy the icon
+        cp src/main/res/mipmap-xhdpi/ic_launcher.png icon.png
+        
+        # Extract versions
+        VERSION_CODE=$(grep "versionCode = " build.gradle.kts | grep -o "[0-9]*")
+        VERSION_NAME=$(grep "versionName = " build.gradle.kts | grep -o '".*"' | tr -d '"')
+        
+        cat <<JSON > index.min.json
+        {
+          "name": "WebDAV Anime",
+          "badgeLabel": "WEBDAV",
+          "signingKey": "849ea632cba0df7a13cacff8abf659111b56ea9110fe33d4dbcd1c73cba7ece0",
+          "contact": {
+            "website": "https://github.com/Hikari2w2/webdav-anime-extension"
+          },
+          "extensionList": {
+            "extensions": [
+              {
+                "name": "WebDAV Anime",
+                "packageName": "eu.kanade.tachiyomi.animeextension.all.webdav",
+                "resources": {
+                  "apkUrl": "https://raw.githubusercontent.com/Hikari2w2/webdav-anime-extension/repo/webdav-anime-extension.apk",
+                  "iconUrl": "https://raw.githubusercontent.com/Hikari2w2/webdav-anime-extension/repo/icon.png"
+                },
+                "extensionLib": "14",
+                "versionCode": "${VERSION_CODE}",
+                "versionName": "${VERSION_NAME}",
+                "contentWarning": "CONTENT_WARNING_SAFE",
+                "sources": [
+                  {
+                    "id": "10000",
+                    "name": "WebDAV Server 1",
+                    "language": "all"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+        JSON
+        
+        git checkout --orphan repo
+        git rm -rf .
+        git add webdav-anime-extension.apk icon.png index.min.json
+        git commit -m "Update repo index and APK"
+        git push origin repo --force

@@ -5,6 +5,15 @@ plugins {
 }
 
 android {
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("webdav.jks")
+            storePassword = "webdav123"
+            keyAlias = "webdav"
+            keyPassword = "webdav123"
+        }
+    }
     namespace = "eu.kanade.tachiyomi.animeextension.all.webdav"
     compileSdk = 34
 
@@ -17,6 +26,10 @@ android {
     }
 
     buildTypes {
+
+        release {
+            signingConfig = signingConfigs.getByName("release")
+        }
         release {
             isMinifyEnabled = false
         }
