@@ -23,7 +23,7 @@ jobs:
         gradle-version: '8.6'
 
     - name: Build Release APK
-      run: ./gradlew assembleRelease
+      run: gradle assembleRelease
 
     - name: Prepare Repo Branch
       run: |
