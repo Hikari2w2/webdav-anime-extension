@@ -21,8 +21,8 @@ android {
         applicationId = "eu.kanade.tachiyomi.animeextension.all.webdav"
         minSdk = 21
         targetSdk = 34
-        versionCode = 2
-        versionName = "14.2"
+        versionCode = 3
+        versionName = "14.3"
     }
 
     buildTypes {

@@ -37,7 +37,8 @@ jobs:
         cp $APK_PATH webdav-anime-extension.apk
         
         # Copy the icon
-        cp src/main/res/mipmap-xhdpi/ic_launcher.png icon.png
+        mkdir -p icon
+        cp src/main/res/mipmap-xhdpi/ic_launcher.png icon/eu.kanade.tachiyomi.animeextension.all.webdav.png
         
         # Extract versions
         VERSION_CODE=$(grep "versionCode = " build.gradle.kts | grep -o "[0-9]*")
@@ -55,41 +56,29 @@ jobs:
         JSON
         
         cat <<JSON > index.min.json
-        {
-          "name": "WebDAV Anime",
-          "badgeLabel": "WEBDAV",
-          "signingKey": "849ea632cba0df7a13cacff8abf659111b56ea9110fe33d4dbcd1c73cba7ece0",
-          "contact": {
-            "website": "https://github.com/Hikari2w2/webdav-anime-extension"
-          },
-          "extensionList": {
-            "extensions": [
+        [
+          {
+            "name": "WebDAV Anime",
+            "pkg": "eu.kanade.tachiyomi.animeextension.all.webdav",
+            "apk": "webdav-anime-extension.apk",
+            "lang": "all",
+            "code": ${VERSION_CODE},
+            "version": "${VERSION_NAME}",
+            "nsfw": 0,
+            "sources": [
               {
-                "name": "WebDAV Anime",
-                "packageName": "eu.kanade.tachiyomi.animeextension.all.webdav",
-                "resources": {
-                  "apkUrl": "https://raw.githubusercontent.com/Hikari2w2/webdav-anime-extension/repo/webdav-anime-extension.apk",
-                  "iconUrl": "https://raw.githubusercontent.com/Hikari2w2/webdav-anime-extension/repo/icon.png"
-                },
-                "extensionLib": "14",
-                "versionCode": ${VERSION_CODE},
-                "versionName": "${VERSION_NAME}",
-                "contentWarning": "CONTENT_WARNING_SAFE",
-                "sources": [
-                  {
-                    "id": 10000,
-                    "name": "WebDAV Server 1",
-                    "language": "all"
-                  }
-                ]
+                "id": 10000,
+                "lang": "all",
+                "name": "WebDAV Server 1",
+                "baseUrl": ""
               }
             ]
           }
-        }
+        ]
         JSON
         
         git checkout --orphan repo
         git rm -rf .
-        git add webdav-anime-extension.apk icon.png index.min.json repo.json
+        git add webdav-anime-extension.apk icon/eu.kanade.tachiyomi.animeextension.all.webdav.png index.min.json repo.json
         git commit -m "Update repo index and APK"
         git push origin repo --force
