@@ -33,11 +33,13 @@ jobs:
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         
+        # Create apk and icon directories
+        mkdir -p apk icon
+        
         APK_PATH=$(find build/outputs/apk/release -name "*.apk" | head -n 1)
-        cp $APK_PATH webdav-anime-extension.apk
+        cp $APK_PATH apk/webdav-anime-extension.apk
         
         # Copy the icon
-        mkdir -p icon
         cp src/main/res/mipmap-xhdpi/ic_launcher.png icon/eu.kanade.tachiyomi.animeextension.all.webdav.png
         
         # Extract versions
@@ -79,6 +81,6 @@ jobs:
         
         git checkout --orphan repo
         git rm -rf .
-        git add webdav-anime-extension.apk icon/eu.kanade.tachiyomi.animeextension.all.webdav.png index.min.json repo.json
+        git add apk/webdav-anime-extension.apk icon/eu.kanade.tachiyomi.animeextension.all.webdav.png index.min.json repo.json
         git commit -m "Update repo index and APK"
         git push origin repo --force
