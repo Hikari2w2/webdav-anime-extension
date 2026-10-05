@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    compileOnly("com.github.komikku-app:aniyomi-extensions-lib:14")
+    compileOnly("com.github.komikku-app:aniyomi-extensions-lib:13")
     compileOnly("com.squareup.okhttp3:okhttp:4.11.0")
     compileOnly("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
     compileOnly("androidx.preference:preference-ktx:1.2.1")
